@@ -11,6 +11,27 @@ on:
     - master
 
 jobs:
+  test-powershell-5-1-windows-2025:
+    runs-on: windows-2025
+    steps:
+    - uses: actions/checkout@v1
+    - name: Powershell version
+      shell: powershell
+      run: |
+        $PSVersionTable
+    - name: List modules 1
+      shell: powershell
+      run: |
+        Get-Module -ListAvailable
+    - name: List modules 2
+      shell: powershell
+      run: |
+        Get-InstalledModule
+    - name: Install Pester 4.10
+      shell: powershell
+      run: |
+        Install-Module Pester -Force -Scope CurrentUser -MinimumVersion 4.10.1 -MaximumVersion 4.10.1 -ErrorAction Stop
+
   test-powershell-5-1-windows-2022:
     runs-on: windows-2022
     steps:
