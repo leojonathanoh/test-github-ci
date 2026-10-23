@@ -27,10 +27,14 @@ jobs:
       shell: powershell
       run: |
         Get-InstalledModule
-    - name: Install Pester 4.10
+    - name: Install Pester 4
       shell: powershell
       run: |
         Install-Module Pester -Force -Scope CurrentUser -MinimumVersion 4.10.1 -MaximumVersion 4.10.1 -ErrorAction Stop
+    - name: Install Pester 5
+      shell: powershell
+      run: |
+        Install-Module Pester -Force -Scope CurrentUser -MinimumVersion 5.9.1 -MaximumVersion 5.9.1 -ErrorAction Stop
 
   test-powershell-5-1-windows-2022:
     runs-on: windows-2022
@@ -48,10 +52,18 @@ jobs:
       shell: powershell
       run: |
         Get-InstalledModule
-    - name: Install Pester 4.10
+    - name: Install Pester 4
       shell: powershell
       run: |
         Install-Module Pester -Force -Scope CurrentUser -MinimumVersion 4.10.1 -MaximumVersion 4.10.1 -ErrorAction Stop
+    - name: Install Pester 5
+      shell: powershell
+      run: |
+        Install-Module Pester -Force -Scope CurrentUser -MinimumVersion 5.9.1 -MaximumVersion 5.9.1 -ErrorAction Stop
+    - name: List modules
+      shell: powershell
+      run: |
+        Get-Module -ListAvailable
 
   test-powershell-5-1-windows-2019:
     runs-on: windows-2022
@@ -69,10 +81,18 @@ jobs:
       shell: powershell
       run: |
         Get-InstalledModule
-    - name: Install Pester 4.10
+    - name: Install Pester 4
       shell: powershell
       run: |
         Install-Module Pester -Force -Scope CurrentUser -MinimumVersion 4.10.1 -MaximumVersion 4.10.1 -ErrorAction Stop
+    - name: Install Pester 5
+      shell: powershell
+      run: |
+        Install-Module Pester -Force -Scope CurrentUser -MinimumVersion 5.9.1 -MaximumVersion 5.9.1 -ErrorAction Stop
+    - name: List modules
+      shell: powershell
+      run: |
+        Get-Module -ListAvailable
 
   ##########
   # Docker #
@@ -85,14 +105,29 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Powershell version
+      shell: pwsh
       run: |
-        pwsh -NoLogo -NonInteractive -NoProfile -Command '$PSVersionTable'
-    - name: List Modules 1
+        $PSVersionTable
+    - name: List modules 1
+      shell: pwsh
       run: |
-        pwsh -NoLogo -NonInteractive -NoProfile -Command 'Get-Module -ListAvailable'
-    - name: List Modules 2
+        Get-Module -ListAvailable
+    - name: List modules 2
+      shell: pwsh
       run: |
-        pwsh -NoLogo -NonInteractive -NoProfile -Command 'Get-InstalledModule'
+        Get-InstalledModule
+    - name: Install Pester 4
+      shell: pwsh
+      run: |
+        Install-Module Pester -Force -Scope CurrentUser -MinimumVersion 4.10.1 -MaximumVersion 4.10.1 -ErrorAction Stop
+    - name: Install Pester 5
+      shell: pwsh
+      run: |
+        Install-Module Pester -Force -Scope CurrentUser -MinimumVersion 5.9.1 -MaximumVersion 5.9.1 -ErrorAction Stop
+    - name: List modules
+      shell: pwsh
+      run: |
+        Get-Module -ListAvailable
 
   test-powershell-6-1:
     runs-on: ubuntu-latest
@@ -101,15 +136,29 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Powershell version
+      shell: pwsh
       run: |
-        pwsh -NoLogo -NonInteractive -NoProfile -Command '$PSVersionTable'
-    - name: List Modules 1
+        $PSVersionTable
+    - name: List modules 1
+      shell: pwsh
       run: |
-        pwsh -NoLogo -NonInteractive -NoProfile -Command 'Get-Module -ListAvailable'
-    - name: List Modules 2
+        Get-Module -ListAvailable
+    - name: List modules 2
+      shell: pwsh
       run: |
-        pwsh -NoLogo -NonInteractive -NoProfile -Command 'Get-InstalledModule'
-
+        Get-InstalledModule
+    - name: Install Pester 4
+      shell: pwsh
+      run: |
+        Install-Module Pester -Force -Scope CurrentUser -MinimumVersion 4.10.1 -MaximumVersion 4.10.1 -ErrorAction Stop
+    - name: Install Pester 5
+      shell: pwsh
+      run: |
+        Install-Module Pester -Force -Scope CurrentUser -MinimumVersion 5.9.1 -MaximumVersion 5.9.1 -ErrorAction Stop
+    - name: List modules
+      shell: pwsh
+      run: |
+        Get-Module -ListAvailable
   test-powershell-6-2:
     runs-on: ubuntu-latest
     container:
@@ -117,15 +166,29 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Powershell version
+      shell: pwsh
       run: |
-        pwsh -NoLogo -NonInteractive -NoProfile -Command '$PSVersionTable'
-    - name: List Modules 1
+        $PSVersionTable
+    - name: List modules 1
+      shell: pwsh
       run: |
-        pwsh -NoLogo -NonInteractive -NoProfile -Command 'Get-Module -ListAvailable'
-    - name: List Modules 2
+        Get-Module -ListAvailable
+    - name: List modules 2
+      shell: pwsh
       run: |
-        pwsh -NoLogo -NonInteractive -NoProfile -Command 'Get-InstalledModule'
-
+        Get-InstalledModule
+    - name: Install Pester 4
+      shell: pwsh
+      run: |
+        Install-Module Pester -Force -Scope CurrentUser -MinimumVersion 4.10.1 -MaximumVersion 4.10.1 -ErrorAction Stop
+    - name: Install Pester 5
+      shell: pwsh
+      run: |
+        Install-Module Pester -Force -Scope CurrentUser -MinimumVersion 5.9.1 -MaximumVersion 5.9.1 -ErrorAction Stop
+    - name: List modules
+      shell: pwsh
+      run: |
+        Get-Module -ListAvailable
   test-powershell-7-0:
     runs-on: ubuntu-latest
     container:
@@ -133,15 +196,29 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Powershell version
+      shell: pwsh
       run: |
-        pwsh -NoLogo -NonInteractive -NoProfile -Command '$PSVersionTable'
-    - name: List Modules 1
+        $PSVersionTable
+    - name: List modules 1
+      shell: pwsh
       run: |
-        pwsh -NoLogo -NonInteractive -NoProfile -Command 'Get-Module -ListAvailable'
-    - name: List Modules 2
+        Get-Module -ListAvailable
+    - name: List modules 2
+      shell: pwsh
       run: |
-        pwsh -NoLogo -NonInteractive -NoProfile -Command 'Get-InstalledModule'
-
+        Get-InstalledModule
+    - name: Install Pester 4
+      shell: pwsh
+      run: |
+        Install-Module Pester -Force -Scope CurrentUser -MinimumVersion 4.10.1 -MaximumVersion 4.10.1 -ErrorAction Stop
+    - name: Install Pester 5
+      shell: pwsh
+      run: |
+        Install-Module Pester -Force -Scope CurrentUser -MinimumVersion 5.9.1 -MaximumVersion 5.9.1 -ErrorAction Stop
+    - name: List modules
+      shell: pwsh
+      run: |
+        Get-Module -ListAvailable
   test-powershell-7-1:
     runs-on: ubuntu-latest
     container:
@@ -149,15 +226,29 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Powershell version
+      shell: pwsh
       run: |
-        pwsh -NoLogo -NonInteractive -NoProfile -Command '$PSVersionTable'
-    - name: List Modules 1
+        $PSVersionTable
+    - name: List modules 1
+      shell: pwsh
       run: |
-        pwsh -NoLogo -NonInteractive -NoProfile -Command 'Get-Module -ListAvailable'
-    - name: List Modules 2
+        Get-Module -ListAvailable
+    - name: List modules 2
+      shell: pwsh
       run: |
-        pwsh -NoLogo -NonInteractive -NoProfile -Command 'Get-InstalledModule'
-
+        Get-InstalledModule
+    - name: Install Pester 4
+      shell: pwsh
+      run: |
+        Install-Module Pester -Force -Scope CurrentUser -MinimumVersion 4.10.1 -MaximumVersion 4.10.1 -ErrorAction Stop
+    - name: Install Pester 5
+      shell: pwsh
+      run: |
+        Install-Module Pester -Force -Scope CurrentUser -MinimumVersion 5.9.1 -MaximumVersion 5.9.1 -ErrorAction Stop
+    - name: List modules
+      shell: pwsh
+      run: |
+        Get-Module -ListAvailable
   test-powershell-7-2:
     runs-on: ubuntu-latest
     container:
@@ -165,15 +256,29 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Powershell version
+      shell: pwsh
       run: |
-        pwsh -NoLogo -NonInteractive -NoProfile -Command '$PSVersionTable'
-    - name: List Modules 1
+        $PSVersionTable
+    - name: List modules 1
+      shell: pwsh
       run: |
-        pwsh -NoLogo -NonInteractive -NoProfile -Command 'Get-Module -ListAvailable'
-    - name: List Modules 2
+        Get-Module -ListAvailable
+    - name: List modules 2
+      shell: pwsh
       run: |
-        pwsh -NoLogo -NonInteractive -NoProfile -Command 'Get-InstalledModule'
-
+        Get-InstalledModule
+    - name: Install Pester 4
+      shell: pwsh
+      run: |
+        Install-Module Pester -Force -Scope CurrentUser -MinimumVersion 4.10.1 -MaximumVersion 4.10.1 -ErrorAction Stop
+    - name: Install Pester 5
+      shell: pwsh
+      run: |
+        Install-Module Pester -Force -Scope CurrentUser -MinimumVersion 5.9.1 -MaximumVersion 5.9.1 -ErrorAction Stop
+    - name: List modules
+      shell: pwsh
+      run: |
+        Get-Module -ListAvailable
   test-powershell-7-3:
     runs-on: ubuntu-latest
     container:
@@ -181,15 +286,29 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Powershell version
+      shell: pwsh
       run: |
-        pwsh -NoLogo -NonInteractive -NoProfile -Command '$PSVersionTable'
-    - name: List Modules 1
+        $PSVersionTable
+    - name: List modules 1
+      shell: pwsh
       run: |
-        pwsh -NoLogo -NonInteractive -NoProfile -Command 'Get-Module -ListAvailable'
-    - name: List Modules 2
+        Get-Module -ListAvailable
+    - name: List modules 2
+      shell: pwsh
       run: |
-        pwsh -NoLogo -NonInteractive -NoProfile -Command 'Get-InstalledModule'
-
+        Get-InstalledModule
+    - name: Install Pester 4
+      shell: pwsh
+      run: |
+        Install-Module Pester -Force -Scope CurrentUser -MinimumVersion 4.10.1 -MaximumVersion 4.10.1 -ErrorAction Stop
+    - name: Install Pester 5
+      shell: pwsh
+      run: |
+        Install-Module Pester -Force -Scope CurrentUser -MinimumVersion 5.9.1 -MaximumVersion 5.9.1 -ErrorAction Stop
+    - name: List modules
+      shell: pwsh
+      run: |
+        Get-Module -ListAvailable
   test-powershell-7-4:
     runs-on: ubuntu-latest
     container:
@@ -197,11 +316,26 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Powershell version
+      shell: pwsh
       run: |
-        pwsh -NoLogo -NonInteractive -NoProfile -Command '$PSVersionTable'
-    - name: List Modules 1
+        $PSVersionTable
+    - name: List modules 1
+      shell: pwsh
       run: |
-        pwsh -NoLogo -NonInteractive -NoProfile -Command 'Get-Module -ListAvailable'
-    - name: List Modules 2
+        Get-Module -ListAvailable
+    - name: List modules 2
+      shell: pwsh
       run: |
-        pwsh -NoLogo -NonInteractive -NoProfile -Command 'Get-InstalledModule'
+        Get-InstalledModule
+    - name: Install Pester 4
+      shell: pwsh
+      run: |
+        Install-Module Pester -Force -Scope CurrentUser -MinimumVersion 4.10.1 -MaximumVersion 4.10.1 -ErrorAction Stop
+    - name: Install Pester 5
+      shell: pwsh
+      run: |
+        Install-Module Pester -Force -Scope CurrentUser -MinimumVersion 5.9.1 -MaximumVersion 5.9.1 -ErrorAction Stop
+    - name: List modules
+      shell: pwsh
+      run: |
+        Get-Module -ListAvailable
